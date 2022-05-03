@@ -1,6 +1,7 @@
 import json
 import os
-import subprocess, time
+import subprocess
+import time
 from urllib.request import urlopen
 
 # Configurations
