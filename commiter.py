@@ -1,7 +1,6 @@
 import datetime
 import os
 import re
-import subprocess
 import time
 import requests
 
@@ -80,8 +79,10 @@ while True:
             for x in socks4proxie:
                 socks4proxies.append(x)
         socks4proxies = list(set(socks4proxies))
-
-        os.chdir("InducedProxys")
+        try:
+            os.chdir("InducedProxys")
+        except:
+            pass
         with open("proxys/http.txt", "w") as f:
             f.write('\n'.join(httpproxies))
         with open("proxys/https.txt", "w") as f:
@@ -90,11 +91,12 @@ while True:
             f.write('\n'.join(proxies))
         with open("proxys/socks4.txt", "w") as f:
             f.write('\n'.join(socks4proxies))
-            
-        subprocess.check_output(["git", "add", ".", ])
-        date = datetime.datetime.now().strftime('%d/%m/%Y %H:%M:%S')
-        subprocess.check_output(["git", "commit", "-m", f"\"Proxys Update {date}\""])
-        subprocess.check_output(["git", "push", "origin", "main"])
-    except:
+        os.system("git add .")
+        os.system(f"git commit -m \'Proxys Update {datetime.datetime.now().strftime('%d/%m/%Y %H:%M:%S')}\'")
+        os.system("git push origin main")
+        os.chdir("../")
+        
+    except Exception as e:
+        print(e)
         pass
     time.sleep(300)
