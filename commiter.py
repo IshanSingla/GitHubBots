@@ -81,7 +81,7 @@ while True:
                 socks4proxies.append(x)
         socks4proxies = list(set(socks4proxies))
 
-        os.chdir('InducedProxys")
+        os.chdir("InducedProxys")
         with open("proxys/http.txt", "w") as f:
             f.write('\n'.join(httpproxies))
         with open("proxys/https.txt", "w") as f:
