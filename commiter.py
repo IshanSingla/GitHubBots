@@ -80,7 +80,7 @@ while True:
                 socks4proxies.append(x)
         socks4proxies = list(set(socks4proxies))
         try:
-            os.chdir("InducedProxys")
+            os.chdir("proxy-list")
         except:
             pass
         with open("proxys/http.txt", "w") as f:
