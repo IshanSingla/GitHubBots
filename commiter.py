@@ -99,4 +99,4 @@ while True:
     except Exception as e:
         print(e)
         pass
-    time.sleep(300)
+    time.sleep(600)
